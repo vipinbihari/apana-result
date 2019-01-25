@@ -1,0 +1,145 @@
+#main-body{
+    margin-top: 15%;
+    /* z-index: 999999999; */
+}
+.marquee a {
+    text-decoration: none;
+    color:#084bda
+    
+}
+
+.images a{
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    /* padding: 21px; */
+}
+
+#image1{background-color: red;
+text-align: center;
+padding: 7px;
+height: 56px;}
+
+#image2{background-color: #868a08;text-align:center;padding: 7px;/* width: 20px; */height: 56px;}
+
+
+#image3{ 
+background-color: #0404b4;
+    text-align: center;
+        padding: 7px;
+height: 56px;
+}
+
+#image4{ 
+background-color: #0080ff;
+    text-align: center;
+            padding: 7px;
+height: 56px;
+
+}
+
+#image5{background-color: #5cb85c;text-align: center;padding: 7px;height: 56px;}
+
+#image6{background-color: #c15372;text-align: center;padding: 7px;height: 56px;}
+
+#image7{ 
+background-color: #ff00bf;
+    text-align: center;
+                padding: 7px;
+
+height: 56px;
+}
+
+#image8{ 
+background-color: #517646;
+    text-align: center;
+                padding: 7px;
+height: 56px;
+
+}
+
+ .scroll1{
+     overflow:scroll;
+     overflow-x: scroll;
+     overflow-y: hidden;
+ }
+ .scroll1 table {
+     width:160%;
+ }
+ #post i{
+     color:green;
+ }
+
+ #whtsicon{
+     background-color: #f8f8f8;
+     float:left;
+     padding-left: 5%;
+ }
+  #fbicon{
+     background-color: #f8f8f8;
+     float:left;
+     color:blue;
+     padding-left: 10%;
+     padding-right: 10%;
+ }
+  #open{
+     background-color: red;
+     width: 42%;
+     float:left;
+     padding-left: 7%;
+     border-radius: 24px;
+ }
+
+ #spin{position: relative;top: 42%;left: 35%;}
+ #spinparent{
+     position:fixed;
+     width:100%;
+     top: 0;
+     left: 0;
+     height: 100%;
+     background-color: #4c3d3d91;
+     z-index: 0;
+     display: none;
+ }
+
+.mail { display:none; position:fixed;width: 100%;height: 100%;top: 7%;left:0px;background-color: #1d191991;animation-duration: 0.4s;animation-name: fadeIn;}
+
+ .mail form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #f1f1f1;
+    font-family: Arial;
+}
+
+.mail .container {
+    padding: 4px;
+    background-color: #f1f1f1;
+}
+
+.mail input[type=text], .mail input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.mail input[type=checkbox] {
+    margin-top: 16px;
+}
+
+.mail input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.mail input[type=submit]:hover {
+    opacity: 0.8;
+}
+#facepage{
+
+position: fixed; top: 0; background-color: #fefefe; width: 100%; margin-top: 46px; padding-left: 20px;
+}
