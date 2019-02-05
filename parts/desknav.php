@@ -1,4 +1,4 @@
- 
+
 <div id="front">
 <div id="nav">
         <ul>
@@ -15,11 +15,9 @@
                      <li><a href="">Contact Us</a></li>
         </ul>
 </div>
-    <div id="header"><a href="http://www.apanaresult.com"> 
+    <div id="header"><a href="http://www.apanaresult.com">
 <div id="head-title"><h1>AP<span style="color:red">A</span>NA RESULT</h1>
 <h3>
     WWW.अ<span style="color:red;">पा</span>ना रिजल्ट.COM</h3>
         </div></a>
 </div><br/>
-    
-             
