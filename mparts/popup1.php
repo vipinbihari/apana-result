@@ -6,7 +6,8 @@
      data-ad-client="ca-pub-1135685717282401"
      data-ad-slot="1513060368"
      data-ad-format="auto"></ins>
-    </div>     <div class="modal-content">
+    </div>
+      <div class="modal-content">
                     <div class="modal-header">
                         <span class="close">&times;</span>
                         <h2>
@@ -16,7 +17,7 @@
                     <div class="modal-body" id='fill'>
                        <a href="#"></a><i class="fa fa-external-link" style="color:red"></i><br>
                         </div>
-                    
+
                     <div class="modal-footer">
                     <div id="whtsicon">
                         <i class="fa fa-3x fa-whatsapp" style="color:green;"></i>
@@ -42,7 +43,7 @@
                     // Get the <span> element that closes the modal
                     var span = document.getElementsByClassName("close")[0];
 
-                    // When the user clicks the button, open the modal 
+                    // When the user clicks the button, open the modal
                     modal.style.display = "block";
                     document.getElementById("ptitle").innerHTML = document.getElementById(val).innerHTML;
                     var xhttp = new XMLHttpRequest();
@@ -94,11 +95,10 @@ EOT;
 
 <style>
         #amazon{
-        
+
              width: 100%;
     position: fixed;
     top: 8%;
         }
-   
-    </style>
 
+    </style>
