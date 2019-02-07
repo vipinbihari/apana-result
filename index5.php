@@ -87,7 +87,7 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
                             <img src="https://u.imageresize.org/2c603446-a5ba-46af-baa1-7f3c7381c210.png" alt="" class="ump-header-background-image">
 
                            <?php
-
+/*
                             if(!isset($_COOKIE['userid'])){
                             error_reporting(E_ALL);
                             require_once __DIR__ . '/vendor/autoload.php';
@@ -101,7 +101,7 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
                             $loginUrl = $helper->getLoginUrl('https://apanaresult.com/fb-callback.php', $permissions);
                             //echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
                             }
-
+*/
                           ?>
 
         <!-- INCLUDING THE MENU HEADER -->
