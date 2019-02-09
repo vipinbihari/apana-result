@@ -19,7 +19,7 @@
 
 <!-- LOADING ALL THE DEPENDENT CSS AND JAVASCRIPT FILES-->
 <?php include 'parts/deskdepend.php'; ?>
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115813186-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115813186-1"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());gtag('config','UA-115813186-1');</script>
 
@@ -43,11 +43,13 @@ gtag('js',new Date());gtag('config','UA-115813186-1');</script>
 <?php include 'parts/desknav.php'; ?>
 
 <!-- desktop add -->
-<center><ins class="adsbygoogle"
+<center>
+  <ins class="adsbygoogle"
      style="display:inline-block;width:970px;height:90px"
      data-ad-client="ca-pub-1135685717282401"
      data-ad-slot="6034027443"></ins>
-</center><script>
+</center>
+<script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <!-- GETTING THE THREE ROWS OF MOVING MARQUEE IN DATABASE-->

@@ -1,172 +1,184 @@
-
-
 <?php
 $conn = mysqli_connect('localhost', 'root', 'YES', 'apanaresult');
 
 if (!$conn)
-	{
+{
 	die("error connectig to the detabase" . mysqli_connect_error());
-	}
+}
 
 ?>
 
-
-
 <?php
+$array = array(
+	'result',
+	'admission'
+);
 
+foreach($array as $link)
+{
+	$query = "SELECT * FROM $link ORDER BY id DESC LIMIT 18";
+	$result = mysqli_query($conn, $query);
+	while ($row = mysqli_fetch_assoc($result))
+	{
 
+		// getting the url of which sort_info is to be updated
 
-        $array = array('result', 'admission');
-        foreach($array as $link){
+		$url = $row['generated_link'];
 
-        $query = "SELECT * FROM $link ORDER BY id DESC LIMIT 18";
-                             $result = mysqli_query($conn, $query);
-                             while($row = mysqli_fetch_assoc($result)){
-      //getting the url of which sort_info is to be updated
-        $url = $row['generated_link'];
-        //getting the id of which sort_info is to be updated
-        $id = $row['id'];
-        //getting the information weather the sort_info have to to updated or not                  
-        if($row['dnd']==1){
-            continue;
-        }
-    $insert ='';
+		// getting the id of which sort_info is to be updated
 
-	// $url = 'https://sarkariresults.info/2016/idbiassistantmanager.php';
+		$id = $row['id'];
 
-	$html = file_get_contents($url);
-	$html1 = stristr($html, 'IMPORTANT LINKS');
-	if(!$html1) {
+		// getting the information weather the sort_info have to to updated or not
 
+		if ($row['dnd'] == 1)
+		{
+			continue;
+		}
 
-$html1 = stristr($html, 'IMPORTANT');
+		$insert = '';
 
-}
+		// $url = 'https://sarkariresults.info/2016/idbiassistantmanager.php';
 
-	$html2 = stristr($html1, '</tbody>', true);
+		$html = file_get_contents($url);
+		$html1 = stristr($html, 'IMPORTANT LINKS');
+		if (!$html1)
+		{
+			$html1 = stristr($html, 'IMPORTANT');
+		}
 
-	// echo $html2;
+		$html2 = stristr($html1, '</tbody>', true);
 
-	$html3 = stristr($html2, '<tr>');
+		// echo $html2;
 
-	// print $html3;
+		$html3 = stristr($html2, '<tr>');
 
-	$doc = new DOMDocument();
-	$doc->loadHTML($html3);
-	$tr = $doc->getElementsByTagName('tr');
-	//echo $tr->length;
-	foreach($tr as $tr1)
+		// print $html3;
+
+		$doc = new DOMDocument();
+		$doc->loadHTML($html3);
+		$tr = $doc->getElementsByTagName('tr');
+
+		// echo $tr->length;
+
+		foreach($tr as $tr1)
 		{
 
-		// echo '<br />td: ';
+			// echo '<br />td: ';
 
-		$td = $tr1->getElementsByTagName('td');
+			$td = $tr1->getElementsByTagName('td');
 
-		// copied td
+			// copied td
 
-		$tdc = $td;
-		$tdl = $td->length;
-		foreach($td as $td)
+			$tdc = $td;
+			$tdl = $td->length;
+			foreach($td as $td)
 			{
-			if ($tdl == 1)
+				if ($tdl == 1)
 				{
-                
-				$al = $td->getElementsByTagName('a')->length;
-               
-                if($al != 1){
-                    continue;
-                }
-                
-                $a = $td->getElementsByTagName('a')->item(0);
-				$href = $a->getAttribute('href');
-                $href = str_replace(' ', '', $href);
-				$name = $a->nodeValue;
-                $name = trim(preg_replace('/\s\s+/', ' ', $name));
-				$insert .= "<a href='" . $href . "'>{$name}</a>";
-				//echo '<br />';
+					$al = $td->getElementsByTagName('a')->length;
+					if ($al != 1)
+					{
+						continue;
+					}
+
+					$a = $td->getElementsByTagName('a')->item(0);
+					$href = $a->getAttribute('href');
+					$href = str_replace(' ', '', $href);
+					$name = $a->nodeValue;
+					$name = trim(preg_replace('/\s\s+/', ' ', $name));
+					$insert.= "<a href='" . $href . "'>{$name}</a>";
+
+					// echo '<br />';
+
 				}
-
-			elseif ($tdl == 2)
+				elseif ($tdl == 2)
 				{
-				$a = $td->getElementsByTagName('a');
+					$a = $td->getElementsByTagName('a');
 
-				// check the no of links in the single row
+					// check the no of links in the single row
 
-				$al = $a->length;
+					$al = $a->length;
 
-				// echo $al;
-                
-				// loping through all a tags in a documents
+					// echo $al;
+					// loping through all a tags in a documents
 
-				foreach($a as $a)
+					foreach($a as $a)
 					{
 
-					// IF THE LINKS ARE IN A SIMPLE FORm
+						// IF THE LINKS ARE IN A SIMPLE FORm
 
-					if ($al == 1)
+						if ($al == 1)
 						{
-						$href = $a->getAttribute('href');
-                        $href = str_replace(' ', '', $href);
-						$name = $tdc->item(0)->nodeValue;
-                        $name = trim(preg_replace('/\s\s+/', ' ', $name));
-						 $insert .="<a href='" . $href . "'>{$name}</a>";
-						//echo '<br />';
+							$href = $a->getAttribute('href');
+							$href = str_replace(' ', '', $href);
+							$name = $tdc->item(0)->nodeValue;
+							$name = trim(preg_replace('/\s\s+/', ' ', $name));
+							$insert.= "<a href='" . $href . "'>{$name}</a>";
+
+							// echo '<br />';
+
 						}
 
-					// if these links are not in the standard form
+						// if these links are not in the standard form
 
-					if ($al > 1)
+						if ($al > 1)
 						{
-						$name = $tdc->item(0)->nodeValue;
-						$href = $a->getAttribute('href');
-                        $href = str_replace(' ', '', $href);
-						$name = $name . $a->nodeValue;
-                        $name = trim(preg_replace('/\s\s+/', ' ', $name));
-						$insert .= "<a href='" . $href . "'>{$name}</a>";
-					//	echo '<br />';
-						}
-                    // some other cases which are not to be known
-                    if($al < 1){
-                        
-                        continue;
-                    }
+							$name = $tdc->item(0)->nodeValue;
+							$href = $a->getAttribute('href');
+							$href = str_replace(' ', '', $href);
+							$name = $name . $a->nodeValue;
+							$name = trim(preg_replace('/\s\s+/', ' ', $name));
+							$insert.= "<a href='" . $href . "'>{$name}</a>";
 
-					// a foreach loop ending down
+							//	echo '<br />';
+
+						}
+
+						// some other cases which are not to be known
+
+						if ($al < 1)
+						{
+							continue;
+						}
+
+						// a foreach loop ending down
 
 					}
 
-				// tdl == 2 condition ending down
+					// tdl == 2 condition ending down
 
-				}else{ 
-                // if tld is neither 1 nor 2
-                    continue;
-                        }
+				}
+				else
+				{
 
-			// td loop is ending down
+					// if tld is neither 1 nor 2
+
+					continue;
+				}
+
+				// td loop is ending down
 
 			}
 
-		// tr loop is ending down
+			// tr loop is ending down
 
 		}
-                     echo $insert;
-            echo '<br>';   
-                                                                                   
-$insert = mysqli_real_escape_string($conn, $insert);
-                 
-$query1 = "UPDATE $link SET sort_info='$insert' WHERE id='$id'";
-$ins = mysqli_query($conn, $query1);
 
-if($ins) echo 'operation success <br>';
-                                             
-                                 // mysqli brace ending down
-                             }
-           
-// array brace ending down
-                        echo '<br><br><br>';             // mysqli brace ending down
+		echo $insert;
+		echo '<br />';
+		$insert = mysqli_real_escape_string($conn, $insert);
+		$query1 = "UPDATE $link SET sort_info='$insert' WHERE id='$id'";
+		$ins = mysqli_query($conn, $query1);
+		if ($ins) echo 'operation success <br />';
 
-        }
+		// mysqli brace ending down
+
+	}
+
+	// array brace ending down
+
+	echo '<br /><br /><br />'; // mysqli brace ending down
+}
 
 ?>
-
-
