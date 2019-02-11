@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 #This is the main class which will do every thing
 class Scrap:
@@ -90,12 +91,22 @@ class Scrap:
                     continue
         #condition where no of links in a the document are more than 8
         if(len(self.soup.find_all('a')) > 8 ):
+            counter = len(self.soup.find_all('tr'))
+            iteration = 0
             #here we are getting single <tr> tag and which has to be
             for single_tr in self.soup.find_all('tr'):
+                iteration +=1
                 if(len(self.jsonData['links']) <= 4 ):
                     pass
                 else:
-                    break
+                    #this condition is for 1 <td> in a row <tr>
+                    if(len(single_tr.find_all('td')) == 1):
+                        print('This is the case of only one td in a single tr in case of more than 8 links')
+                        self.nameFlag = '( ' + single_tr.find_all('td')[0].text.strip() + ')'
+                    if (counter - iteration) < 3 :
+                        pass
+                    else:
+                        continue
                 #for each <tr> json data which will be appended to the jsonData main
                 single_tr_json = {}
                 #this condition is for 3 <td> in a row <tr>
@@ -149,3 +160,4 @@ class Scrap:
                 else:
                     print('Not able to find any <td> in this <tr>')
                     continue
+        return json.dumps(self.jsonData)
