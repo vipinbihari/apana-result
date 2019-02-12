@@ -49,10 +49,19 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            var l = "";
-                            var myObj = JSON.parse(this.responseText);
-                            for (i in myObj.sort_info) {
-                                l += '<a href="' + i + '" target="_blank">' + myObj.sort_info[i] + '</a> <i class="fa fa-external-link" style="color:red"></i><br>';
+                          var l="";
+                          var myObj = JSON.parse(this.responseText);
+                          for(link in myObj.links){
+
+                          name = myObj.links[link].name;
+                          if('link_name' in myObj.links[link]) {
+                              name += '( ' +myObj.links[link].link_name + ' )';
+
+                          }
+                          href = myObj.links[link].link;
+
+
+                                l += '<a href="' + href + '" target="_blank">' + name + '</a> <i class="fa fa-external-link" style="color:red"></i><br>';
                             }
                             document.getElementById("fill").innerHTML = l;
                             document.getElementById("open").innerHTML = '<h3><span style="cursor:pointer" onclick=openNav("' + myObj.link + '")>&#9776; Form Details</span></h3>';
@@ -67,7 +76,7 @@
                         }
                     }
                     ;
-                    xhttp.open("GET", "/test/bs10.php?type=" + x + "&id=" + y + "&submit=Submit", true);
+                    xhttp.open("GET", "/test/get_links.php?type=" + x + "&id=" + y + "&submit=Submit", true);
                     xhttp.send();
 
                     // When the user clicks on <span> (x), close the modal
