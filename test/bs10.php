@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result))
                 $href = $a->getAttribute('href');
                 $href = str_replace(' ', '', $href);
                $name = preg_replace('/\s\s+/', ' ', $name);
- 
+
 		if($count == 1){
 
 $count++;
@@ -50,7 +50,7 @@ RAM;
 echo <<<RAM
 ,"$href":"$name"
 RAM;
-            
+
 }          }
 
         }
@@ -58,4 +58,3 @@ echo '}, "link":"'.$q.'"}';
 //isset ending down
 }
 ?>
-

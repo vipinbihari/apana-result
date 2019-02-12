@@ -121,8 +121,18 @@ function submit() {
     if (this.readyState == 4 && this.status == 200) {
         var l="";
         var myObj = JSON.parse(this.responseText);
-        for(i in myObj.sort_info){
- l+= '<li><a href="'+ i + '" target="_blank"><b>'+ myObj.sort_info[i] +'</b></a> <i class="fa fa-external-link" style="font-size:13px;color:red"></i></li>';
+        for(link in myObj.links){
+
+        name = myObj.links[link].name;
+        if('link_name' in myObj.links[link]) {
+            name += '( ' +myObj.links[link].link_name + ' )';
+
+        }
+        href = myObj.links[link].link;
+
+
+
+ l+= '<li><a href="'+ href + '" target="_blank"><b>'+ name +'</b></a> <i class="fa fa-external-link" style="font-size:13px;color:red"></i></li>';
 
 }
 document.getElementById("footer").innerHTML = l;
@@ -140,7 +150,7 @@ document.getElementById("detail").innerHTML = '<span style="font-size:30px;"> Sh
 
     }
   };
-  xhttp.open("GET", "/test/bs10.php?type="+x+"&id="+y+"&submit=Submit", true);
+  xhttp.open("GET", "/test/get_links.php?type="+x+"&id="+y+"&submit=Submit", true);
   xhttp.send();
 
     }
