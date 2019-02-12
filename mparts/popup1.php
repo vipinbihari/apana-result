@@ -64,7 +64,7 @@
                                 l += '<a href="' + href + '" target="_blank">' + name + '</a> <i class="fa fa-external-link" style="color:red"></i><br>';
                             }
                             document.getElementById("fill").innerHTML = l;
-                            document.getElementById("open").innerHTML = '<h3><span style="cursor:pointer" onclick=openNav("' + myObj.link + '")>&#9776; Form Details</span></h3>';
+                            document.getElementById("open").innerHTML = '<h3><span style="cursor:pointer" onclick=openNav("' + myObj.main_link + '")>&#9776; Form Details</span></h3>';
                             (adsbygoogle = window.adsbygoogle || []).push({});
 
 
