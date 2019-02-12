@@ -8,9 +8,12 @@ class Scrap:
         self.request = requests.get(url)
         self.main_link = url
     def content(self):
+        try:
             self.filter1 = self.request.text.split('IMPORTANT LINK',1)[1]
-            self.filter2 = self.filter1.split('<tr>',1)[1]
-            return '<tr>' + self.filter2.split('</tbody>',1)[0]
+        except IndexError:
+            self.filter1 = self.request.text.split('Important Link',1)[1]
+        self.filter2 = self.filter1.split('<tr>',1)[1]
+        return '<tr>' + self.filter2.split('</tbody>',1)[0]
     #the newCheck function is for checking if the link is new in a given single_tr rows
     #single_tr_json object is also passed to set its new attribute's value to true of false
     def newCheck(self,single_tr,single_tr_json):

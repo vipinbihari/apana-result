@@ -13,9 +13,11 @@ for selected in select:
     links = cursor.fetchall()
     dataList =[]
     for link in links:
-        json = Scrap(link[1]).Parse()
-        dataList.append((json,link[0]))
-
+        try:
+            json = Scrap(link[1]).Parse()
+            dataList.append((json,link[0]))
+        except:
+            continue
     sql = f"UPDATE {selected} SET sort_info = %s  where id = %s"
     print('\033[93m'+sql+'\033[00m')
     cursor.executemany(sql,dataList)
