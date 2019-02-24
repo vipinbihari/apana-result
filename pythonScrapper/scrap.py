@@ -12,7 +12,7 @@ case = str(sys.argv[1])
 if int(case) == 1:
     select = ['result','admitcard','latestjobs']
 elif int(case) == 2:
-    select = ['admission','answerkey','syllabus','important','certificate']
+    select = ['admission','answerkey','syllabus','important','certificate','trending']
 else:
     select = ['result','admitcard','latestjobs','admission','answerkey','syllabus','important','certificate']
 limit = sys.argv[2]

@@ -95,7 +95,7 @@ CREATE TABLE `syllabus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `treanding`;
-CREATE TABLE `treanding` (
+CREATE TABLE `trending` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `post_name` varchar(100) NOT NULL,
   `generated_link` varchar(150) NOT NULL,
