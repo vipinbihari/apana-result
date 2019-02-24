@@ -9,10 +9,12 @@ database = "apanaresult"
 )
 cursor = mydb.cursor()
 case = str(sys.argv[1])
-if int(case) == 1:
+if int(case) == 0;
+    select = ['trending']
+elif int(case) == 1:
     select = ['result','admitcard','latestjobs']
 elif int(case) == 2:
-    select = ['admission','answerkey','syllabus','important','certificate','trending']
+    select = ['admission','answerkey','syllabus','important','certificate']
 else:
     select = ['result','admitcard','latestjobs','admission','answerkey','syllabus','important','certificate']
 limit = sys.argv[2]
