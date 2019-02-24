@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-
+import re
 #This is the main class which will do every thing
 class Scrap:
     def __init__(self,url):
@@ -11,7 +11,7 @@ class Scrap:
         try:
             self.filter1 = self.request.text.split('IMPORTANT LINK',1)[1]
         except IndexError:
-            self.filter1 = self.request.text.split('Important Link',1)[1]
+            self.filter1 =re.split("important.*links" , self.request.text , flags=re.IGNORECASE)[1] 
         self.filter2 = self.filter1.split('<tr>',1)[1]
         return '<tr>' + self.filter2.split('</tbody>',1)[0]
     #the newCheck function is for checking if the link is new in a given single_tr rows
