@@ -9,7 +9,7 @@ database = "apanaresult"
 )
 cursor = mydb.cursor()
 case = str(sys.argv[1])
-if int(case) == 0;
+if int(case) == 0:
     select = ['trending']
 elif int(case) == 1:
     select = ['result','admitcard','latestjobs']
