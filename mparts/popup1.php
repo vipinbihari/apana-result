@@ -69,7 +69,7 @@
 
 
                         } else {
-                            document.getElementById("whtsicon").innerHTML = '<a href="whatsapp://send?text=http://apanaresult.com/index5.php?type=' + x + '%26id=' + y + '" data-action="share/whatsapp/share"><i class="fa fa-3x fa-whatsapp" style="color:green;"></i>';
+                            document.getElementById("whtsicon").innerHTML = '<a href="whatsapp://send?text=https://'+document.domain+'/index5.php?type=' + x + '%26id=' + y + '" data-action="share/whatsapp/share"><i class="fa fa-3x fa-whatsapp" style="color:green;"></i>';
                             document.getElementById("fill").innerHTML = '<i class="fa fa-refresh fa-spin fa-fw"></i>';
                             // facebook like button must go down
                             document.getElementById("amazon").innerHTML ='<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1135685717282401" data-ad-slot="1513060368" data-ad-format="auto"></ins>';
