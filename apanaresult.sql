@@ -105,5 +105,14 @@ CREATE TABLE `trending` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `thumbnails` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `thumbnail_json` varchar(1000) DEFAULT NULL,
+  `Posted_fb_id` varchar(200) DEFAULT NULL,
+  `type` varchar(15) NOT NULL,
+  `type_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
 
 -- Dump completed on 2019-02-06 11:40:11
