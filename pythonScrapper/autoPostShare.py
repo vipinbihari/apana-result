@@ -27,10 +27,10 @@ class Share:
         self.type = type
         self.id = id
         #the below query is made to retrive thumbnails related information
-        cursor.execute(f"SELECT posted_fb_id from thumbnails where type='{self.type}' AND type_id={self.id}")
+        cursor.execute(f"SELECT posted_fb_id from thumbnails where type='{self.type}' AND type_id={int(self.id)}")
         self.thumbnailData = cursor.fetchall()[0]
         #the below query is made to get thumbnail name detail
-        cursor.execute(f"SELECT post_name FROM {self.type} where id={self.id}")
+        cursor.execute(f"SELECT post_name FROM {self.type} where id={int(self.id)}")
         self.postName = cursor.fetchall()[0][0]
         #this is the facebook page managing token
         #which must be stored as enviornment variable
@@ -49,7 +49,7 @@ class Share:
         self.payload ={}
         self.payload["message"]=f"{self.postName} {self.message}"
         self.payload['access_token'] = self.token
-        self.payload['link'] = f"https://apanaresult.com/index5.php?type={type}&id={id}"
+        self.payload['link'] = f"https://apanaresult.com/index5.php?type={self.type}&id={self.id}"
         self.send = requests.post("https://graph.facebook.com/995191740633729/feed", params=self.payload)
         self.posted_fb_id = json.loads(self.send.text)['id']
         if(self.posted_fb_id):

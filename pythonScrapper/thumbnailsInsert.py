@@ -9,6 +9,7 @@ database="apanaresult"
 )
 cursor = mydb.cursor()
 class ThumnailInsert:
+    #here ids parameter is of set type
     def __init__(self,type,ids):
         #here the type should be the table name from which the thumbnail is to
         #be generated
