@@ -1,4 +1,4 @@
-from imageScrap import *
+from thumbnailsScrap import *
 import mysql.connector
 import json
 mydb = mysql.connector.connect(
