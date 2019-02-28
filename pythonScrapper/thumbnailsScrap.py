@@ -18,6 +18,7 @@ class Image:
         #filter2 is a list containing the number of link specified as constant
         filter2 = filter1.split('"ou":"',self.linksCount)
         counter = 0
+        print('\033[93m'+self.text+'\033[00m')
         for links in filter2:
             if(len(self.jsonImageLinks) == 0):
                 self.jsonImageLinks['default'] = links.split('"',1)[0]
