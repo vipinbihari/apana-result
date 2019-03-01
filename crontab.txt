@@ -4,6 +4,8 @@
 */10 * * * * root python3 /var/www/html/pythonScrapper/scrap.py 0 8
 0 */2 * * * root python3 /var/www/html/pythonScrapper/scrap.py 3 10
 0 0 * * * root python3 /var/www/html/pythonScrapper/scrap.py 3 30
+15 * * * * root python3 /var/www/html/pythonScrapper/event.py
+15 * * * * root python3 /var/www/html/pythonScrapper/trendScrap.py
 
 */15 * * * * root pyton3 /var/www/html/pythonScrapper/trendScrap.py
 * * * * * root php -f /var/www/html/phpScrapper/cronRAL.php
