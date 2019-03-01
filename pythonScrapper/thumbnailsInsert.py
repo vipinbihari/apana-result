@@ -8,7 +8,7 @@ passwd = "YES",
 database="apanaresult"
 )
 cursor = mydb.cursor()
-class ThumnailInsert:
+class ThumbnailsInsert:
     #here ids parameter is of list type
     def __init__(self,type,ids):
         #here the type should be the table name from which the thumbnail is to
