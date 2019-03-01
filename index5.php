@@ -18,19 +18,13 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
 <!DOCTYPE html>
 <html>
     <head>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- IF TYPE AND ID ARE ALSO SUBMITED AS PARAMETER SHOW FACEBOOK RANDOM IMAGE AND INSERT IT TO THE DATABASE-->
-        <?php include 'mparts/analytics.php'; ?>
-
        <!-- INCLUDING AND DECIDING THE MOBILE META TAG FROM PHP WITH WHATSAPP THUMBNAIL SHARING-->
        <?php include 'mparts/mobmeta.php'; ?>
 
         <!-- INCLUDING ALL THE DEPENDENT FILE FOR THE MOBILE VERSION-->
        <?php include 'mparts/mdepend.php'; ?>
 
-
-
-<div id="fb-root"></div>
+<!--<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -38,7 +32,7 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
   js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1681235428623012&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
+-->
     </head>
     <body>
         <!-- INCLUDING WHATSAPP THUMBNAIL SHARING INSIDE BODY TAG-->
@@ -84,7 +78,7 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
                 <nav>
                     <div class="ump-nav-container">
                         <div class="ump-header">
-                            <img src="https://u.imageresize.org/2c603446-a5ba-46af-baa1-7f3c7381c210.png" alt="" class="ump-header-background-image">
+                            <img src="" alt="" class="ump-header-background-image">
 
                            <?php
 /*
@@ -125,9 +119,9 @@ if (!preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
 <?php
 
                                      if(!isset($_COOKIE['userid'])){
-                                         echo <<<EOT
-                                         <a href="$loginUrl" class="fblogin"><img src="fb.png" style="padding-left: 25px;margin-bottom: -8px;"></a>
-EOT;
+                                        // echo <<<EOT
+                                        // <a href="$loginUrl" class="fblogin"><img src="fb.png" style="padding-left: 25px;margin-bottom: -8px;"></a>
+//EOT;
 
                                      }
                                      ?>
@@ -212,3 +206,5 @@ function search(type){
     <script src="scripts/ump.min.js" type="text/javascript"></script>
     <script src="scripts/epggea.js" type="text/javascript"></script>
     <script src="scripts/index.js" type="text/javascript"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<?php include 'mparts/analytics.php'; ?>
