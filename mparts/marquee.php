@@ -25,7 +25,7 @@ EOT;
                                                    
                                                     echo <<<EOT
                                                     <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon">&nbsp;<font size="+1">
-                                                    <a onclick="pop('result',{$row['id']}, 'result{$row['id']}')" id="result{$row['id']}">{$row['post_name']}</a>
+                                                    <a onclick="pop('answerkey',{$row['id']}, 'answerkey{$row['id']}')" id="answerkey{$row['id']}">{$row['post_name']}</a>
                                                   
 EOT;
                                                     
