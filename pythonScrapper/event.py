@@ -6,7 +6,7 @@ if they are they will be posted on facebook.
 a local file event.json must be created to get the record details
 '''
 from thumbnailsInsert import *
-
+from autoPostShare import *
 cursor.execute(f"(SELECT id from result order by id desc limit 1) \
 UNION ALL (SELECT id FROM latestjobs order by id desc limit 1) \
 UNION ALL (SELECT id FROM admitcard order by id desc limit 1) \
@@ -36,3 +36,11 @@ class trigger:
             diffrence = last_result - self.jsonData['result']
             for counter in range(diffrence):
                 self.resultData.append(self.jsonData['result'] + counter +1 )
+            #here we are inserting the thumnail json data to the results
+            #type given by list of id in thumnails table
+            ThumbnailsInsert('result',self.resultData)
+            #when the links thumbnail json is INSERTED
+            #now we will share this to the FACEBOOK below
+            for type_id in self.resultData:
+                Share('result',type_id).post('')
+                print(f"Post type result and id {type_id} shared successfully")
