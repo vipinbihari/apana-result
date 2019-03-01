@@ -24,23 +24,30 @@ last_syllabus = data[4][0]
 last_admission = data[5][0]
 last_certificate = data[6][0]
 last_important = data[7][0]
+mydb.commit()
 class trigger:
     def __init__(self,path_to_file):
+        self.path_to_file = path_to_file
         with open(f"{path_to_file}","r") as file:
             self.jsonData = json.loads(file.read())
-    def parse(self):
-        if (last_result > self.jsonData['result']):
+    def parse(self,type,last_id):
+        self.type = type
+        self.last_id = last_id
+        if (self.last_id > self.jsonData[self.type]):
             #now here we would run the InserImage AND
             #post image command through python
-            self.resultData = []
-            diffrence = last_result - self.jsonData['result']
+            self.list_id_data = []
+            diffrence = self.last_id - self.jsonData[self.type]
             for counter in range(diffrence):
-                self.resultData.append(self.jsonData['result'] + counter +1 )
+                self.list_id_data.append(self.jsonData[self.type] + counter +1 )
             #here we are inserting the thumnail json data to the results
             #type given by list of id in thumnails table
-            ThumbnailsInsert('result',self.resultData)
+            ThumbnailsInsert(self.type,self.list_id_data)
+            mydb.commit()
             #when the links thumbnail json is INSERTED
             #now we will share this to the FACEBOOK below
-            for type_id in self.resultData:
-                Share('result',type_id).post('')
-                print(f"Post type result and id {type_id} shared successfully")
+            for type_id in self.list_id_data:
+                Share(self.type,type_id).post('')
+                mydb.commit()
+                print(f"Post type {self.type} and id {type_id} shared successfully")
+            mydb.commit()
