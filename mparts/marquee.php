@@ -19,7 +19,7 @@ EOT;
                 </marquee>
                   <marquee behavior="alternate" scrollamount="4" onmouseout="this.start();" onmouseover="this.stop();">
                 <?php 
-                                                $query = "SELECT * FROM result ORDER BY id DESC LIMIT 3";
+                                                $query = "SELECT * FROM answerkey ORDER BY id DESC LIMIT 3";
                                                 $result = mysqli_query($conn, $query);
                                                 while($row = mysqli_fetch_assoc($result)){
                                                    
