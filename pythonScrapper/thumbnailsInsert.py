@@ -9,19 +9,22 @@ database="apanaresult"
 )
 cursor = mydb.cursor()
 class ThumnailInsert:
-    #here ids parameter is of set type
+    #here ids parameter is of list type
     def __init__(self,type,ids):
         #here the type should be the table name from which the thumbnail is to
         #be generated
         self.type = type
         #here ids are the id (id number of) corresponding column
         #in the table
-        self.ids = ids
+        self.ids = tuple(ids)
         #this is extratext word which is
         #added at the end of the search image string
         self.extraText = "youtube"
         self.jsonData = []
-        cursor.execute(f"select id,post_name from {self.type} where id in {self.ids}")
+        if(len(self.ids) > 1):
+            cursor.execute(f"select id,post_name from {self.type} where id in {self.ids}")
+        else:
+            cursor.execute(f"select id,post_name from {self.type} where id={self.ids[0]}")
         posts = cursor.fetchall()
         for post in posts:
             id = post[0]
