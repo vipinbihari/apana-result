@@ -51,3 +51,27 @@ class trigger:
                 mydb.commit()
                 print(f"Post type {self.type} and id {type_id} shared successfully")
             mydb.commit()
+
+fetch = trigger('../event.json')
+fetch.parse('result',last_result)
+fetch.parse('latestjobs',last_latestjobs)
+fetch.parse('admitcard',last_admitcard)
+fetch.parse('answerkey',last_answerkey)
+fetch.parse('syllabus',last_syllabus)
+fetch.parse('important',last_important)
+fetch.parse('admission',last_important)
+fetch.parse('certificate',last_certificate)
+
+event_file_dict = {}
+event_file_dict['result'] = last_result
+event_file_dict['latestjobs'] = last_latestjobs
+event_file_dict['admitcard'] = last_admitcard
+event_file_dict['admission'] = last_admission
+event_file_dict['answerkey'] = last_answerkey
+event_file_dict['syllabus'] = last_syllabus
+event_file_dict['important'] = last_important
+event_file_dict['certificate'] = last_certificate
+
+with open(f"{self.path_to_file}","w") as file:
+    file.write(str(event_file_dict))
+    print(f"{self.path_to_file} has been updated successfully")
