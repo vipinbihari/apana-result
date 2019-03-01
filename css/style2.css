@@ -62,20 +62,11 @@
     margin-top: 51px;
 }
 
-.overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
 .overlay a:hover, .overlay a:focus {
     color: red;
 }
 
-.overlay .closebtn{position: fixed;top: 8%;right: 1%;border-radius: 31px;padding: 23px;font-weight: bold;/* font-size: 104px; */background-color: #b7a69082;} 
+.overlay .closebtn{position: fixed;top: 8%;right: 1%;border-radius: 31px;padding: 23px;font-weight: bold; font-size: 3em; background-color: #b7a69082;} 
 
 
            #post ul {
