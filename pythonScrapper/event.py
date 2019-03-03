@@ -64,7 +64,7 @@ class trigger:
         with open(f"{self.path_to_file}","w") as file:
             file.write(json.dumps(event_file_dict))
             print(f"{self.path_to_file} has been updated successfully")
-fetch = trigger('../event.json')
+fetch = trigger('/var/www/html/event.json')
 fetch.parse('result',last_result)
 fetch.parse('latestjobs',last_latestjobs)
 fetch.parse('admitcard',last_admitcard)
