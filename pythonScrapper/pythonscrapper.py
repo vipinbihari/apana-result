@@ -99,6 +99,8 @@ class Scrap:
             #here we are getting single <tr> tag and which has to be
             for single_tr in self.soup.find_all('tr'):
                 iteration +=1
+                #in this case for first four links there is no proble i.# -*- coding: utf-8 -*-
+                #the data is filled as it is
                 if(len(self.jsonData['links']) <= 4 ):
                     pass
                 else:
@@ -106,6 +108,7 @@ class Scrap:
                     if(len(single_tr.find_all('td')) == 1):
                         print('This is the case of only one td in a single tr in case of more than 8 links')
                         self.nameFlag = '( ' + single_tr.find_all('td')[0].text.strip() + ')'
+                    #here the diffrence of two value takes us to the last three <tr>
                     if (counter - iteration) < 3 :
                         pass
                     else:
