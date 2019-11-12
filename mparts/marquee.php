@@ -7,7 +7,7 @@
                                                 while($row = mysqli_fetch_assoc($result)){
                                                    
                                                     echo <<<EOT
-                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon">&nbsp;<font size="+1">
+                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon"><font size="+1">
                                                     <a onclick="pop('latestjobs',{$row['id']}, 'latestjobs{$row['id']}')" id="latestjobs{$row['id']}">{$row['post_name']}</a>
                                                   
 EOT;
@@ -24,7 +24,7 @@ EOT;
                                                 while($row = mysqli_fetch_assoc($result)){
                                                    
                                                     echo <<<EOT
-                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon">&nbsp;<font size="+1">
+                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon"><font size="+1">
                                                     <a onclick="pop('answerkey',{$row['id']}, 'answerkey{$row['id']}')" id="answerkey{$row['id']}">{$row['post_name']}</a>
                                                   
 EOT;
@@ -41,7 +41,7 @@ EOT;
                                                 while($row = mysqli_fetch_assoc($result)){
                                                    
                                                     echo <<<EOT
-                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon">&nbsp;<font size="+1">
+                                                    <img src="https://sarkariresults.info/wp-content/uploads/2015/07/newicon.gif" alt="newicon"><font size="+1">
                                                     <a onclick="pop('admitcard',{$row['id']}, 'admitcard{$row['id']}')" id="admitcard{$row['id']}">{$row['post_name']}</a>
                                                   
 EOT;
